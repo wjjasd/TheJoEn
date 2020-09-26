@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+
+<script type="text/javascript">
+	$(function() {
+
+		var count = 0;
+
+		//증가
+		$('#btn1').click(function() {
+			count++
+			$('#num').html('<font color=red><b>' + count + '</b></font>')
+		})
+		//감소
+		$('#btn2').click(function() {
+			count--
+			$('#num').html('<font color=red><b>' + count + '</b></font>')
+		})
+		//현재 숫자 뽑기
+		$('#btn3').click(function() {
+			alert($('#num').text()*2)
+		})
+	})
+</script>
+
+</head>
+<body>
+	<h1>jquery 연습해보기 - 버튼으로 html제어</h1>
+	<button id='btn1'>+</button>
+	<button id='btn2'>-</button>
+	<div>카운트 : <a id='num'>0</a></div>
+	<button id='btn3'>현재카운트 곱하기 2는?</button>
+</body>
+</html>

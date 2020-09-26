@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//b1
+		$('#b1').click(function() {
+			alert('눌렀구만?')
+		})
+		//b2
+		$('#b2').click(function() {
+			alert('나도 눌렀구만?')
+		})
+		//b3
+		$('#b3').click(function() {
+
+			id2 = 'root'
+			pw2 = '1234'
+			
+			id = $('#id').val()
+			pw = $('#pw').val()
+			
+			if (id==id2 && pw==pw2) {
+				$('div').html('<font color=red><b>로그인ok</b></font>')
+			}else{
+				$('div').html('<font color=blue><b>로그인 실패</b></font>')
+			}
+
+		})
+	})
+</script>
+</head>
+<body>
+
+	<h1>JQuery 연습</h1>
+	<button id='b1'>나를 눌러</button>
+	<button id='b2'>나도 눌러</button>
+	<br>
+	아이디 <input type="text" id='id'><br>
+	패스워드 <input type="text" id='pw'><br>
+	<button id='b3'>로그인처리</button>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>NAVER</h1>
+
+	<p>아이디</p>
+	<input id='idInput' type='text'></input>
+	<button onclick="idInputCheck()">아이디 입력 확인</button>
+	<button onclick="idLengthCheck()">아이디 글자수 확인</button>
+	<button onclick="idDupCheck()">아이디  중복 확인</button>
+	<p>패스워드</p>
+	<input id='pwInput' type='text'></input>
+	<p>패스워드 확인</p>
+	<input id='pwInputCheck' type='text'></input>
+	<h3 id='result'></h3>
+	<button onclick="login()">로그인</button>
+</body>
+
+<script type="text/javascript">
+	//입력값 있는지 체크
+	function idInputCheck() {
+		inputId = document.getElementById('idInput').value
+		inputPw = document.getElementById('pwInput').value
+		if (inputId.length == 0 || inputPw.length == 0) {
+			alert('아이디와 패스워드는 비워둘수 없습니다')
+		}
+	}
+
+	//아이디의 길이 확인
+	function idLengthCheck() {
+		inputId = document.getElementById('idInput').value
+		alert(inputId.length)
+	}
+	
+	//아이디 중복 체크
+	function idDupCheck() {
+		inputId = document.getElementById('idInput').value
+		if(inputId.length != 0){
+			
+		location.href = 'check.jsp?id=' + inputId
+		}else{
+			alert('아이디를 입력하세요')
+		}
+	}
+
+	//로그인 유효성 검사
+	function login() {
+		inputId = document.getElementById('idInput').value
+		inputPw = document.getElementById('pwInput').value
+		inputPwCheck = document.getElementById('pwInputCheck').value
+		if (inputId.length == 0 || inputPw.length == 0) {
+			alert('아이디와 패스워드는 비워둘수 없습니다')
+		}else if(inputPw != inputPwCheck){
+			document.getElementById('result').innerHTML = '<font color=red><b>패스워드가 다름.</b></font>'
+		}else {
+
+			location.href = 'login.jsp?id=' + inputId + "&pw=" + inputPw
+		}
+
+	}
+</script>
+
+</html>
