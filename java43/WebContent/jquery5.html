@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		/* id중복체크 */
+		$('#b1').click(function() {
+			$.ajax({/* 비동기 통신 */
+				url : "check.jsp", /* 연결할 페이지 */
+				data : { /* 보낼데이터 */
+					id : $('#id').val()
+				},
+				success : function(message) { /* 연결 성공했을때 실행 */
+
+					$('#f1').text(message)
+				
+				}
+			})
+		})
+		/* id중복체크 */
+		
+		/* 댓글 */
+		$('#b2').click(function() {
+			$.ajax({/* 비동기 통신 */
+				url : "reply.jsp", /* 연결할 페이지 */
+				data : { /* 보낼데이터 */
+					reply : $('#reply').val()
+				},
+				success : function(result) { /* 연결 성공했을때 실행 */
+
+					$('#d2').append(result)
+				
+				}
+			})
+		})
+		$('#b3').click(function() {
+			$.ajax({/* 비동기 통신 */
+				url : "img.jsp", /* 연결할 페이지 */
+				success : function(result) { /* 연결 성공했을때 실행 */
+
+					$('#d2').append(result)
+				
+				}
+			})
+		})
+		
+		$('#b4').click(function() {
+			$.ajax({/* 비동기 통신 */
+				url : "img.jsp", /* 연결할 페이지 */
+				data : { /* 보낼데이터 */
+					reply : $('#reply').val()
+				},
+				success : function(result) { /* 연결 성공했을때 실행 */
+
+					$('#d2').append(result)
+				
+				}
+			})
+		})
+		/* 댓글 */
+
+	})
+</script>
+</head>
+<body>
+	id입력: <input type="text" id="id">
+	<button id="b1">id중복체크</button>
+	<hr>
+	<div id='d1'>
+	<font id='f1' color=red></font>
+	</div>
+	<hr color="red">
+	댓글입력: <input type="text" id="reply">
+	<button id="b2">댓글달기(텍스트)</button>
+	<button id="b3">댓글달기(이미지)</button>
+	<button id="b4">댓글달기(텍스트+이미지)</button>
+	<hr>
+	<div id="d2"></div>
+	<hr>
+</body>
+</html>

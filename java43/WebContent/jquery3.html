@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		$('#b1').click(function() {
+
+			$.ajax({/* 비동기 통신 */
+				url : "call.jsp", /* 연결할 페이지 */
+				data : { /* 보낼데이터 */
+					name: '홍길동',
+					age: $('#age').val()
+				},
+				success : function(result) { /* 연결 성공했을때 결과 */
+					alert("성공!!")
+					console.log('받은 데이터: ' + result)
+					if (result == '성인') {
+						location.href="https://www.naver.com"
+					} else {
+					 	alert('미성인이시군요!')
+					}
+				}
+			})
+
+		})
+
+	})
+</script>
+</head>
+<body>
+	나이 <input type="text" id="age">
+	<button id="b1">성인판별</button>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({/* 비동기 통신 */
+				url : "call2.jsp", /* 연결할 페이지 */
+				data : { /* 보낼데이터 */
+					score: $('#score').val()
+				},
+				success : function(result) { /* 연결 성공했을때 실행 */
+					alert("성공!!")
+					console.log('성적: ' + result)
+					if(result == "보통"){
+						alert("재시험!!")
+					}else{
+						alert("통과!!")
+					}
+				}
+			})
+		})
+
+	})
+</script>
+</head>
+<body>
+	성적(0~100) <input type="text" id="score">
+	<button id="b1">성적판별</button>
+
+</body>
+</html>
